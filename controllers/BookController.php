@@ -5,11 +5,9 @@ class BookController
     public function showHome(): void
     {
         $bookRepository = new BookRepository();
-        $userRepository = new UserRepository();
         $books = $bookRepository->getLastFourthbooks();
         foreach ($books as &$book) {
-            $owner = $userRepository->getUserById($book['owner']);
-            $book['seller'] = ucfirst($owner['firstname']) . " " . ucfirst($owner['lastname']);
+            $book->seller = ucfirst($book->firstname) . " " . ucfirst($book->lastname);
         }
 
         $view = new View("Accueil");

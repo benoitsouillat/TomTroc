@@ -18,11 +18,6 @@ try {
             $bookController->showHome();
             break;
 
-        case 'apropos':
-            $bookController = new BookController();
-            $bookController->showApropos();
-            break;
-
         default:
             throw new Exception("La page demandée n'existe pas.");
     }

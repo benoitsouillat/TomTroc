@@ -22,7 +22,7 @@
                         <h3 class="book-title">%s</h3>
                         <p class="book-author">%s</p>
                         <p class="book-seller">Vendu par : %s</p>
-                    </aside>', $book['picture'], $book['title'], $book['title'], $book['author'], $book['seller']));
+                    </aside>', $book->picture, $book->title, $book->title, $book->author, $book->seller));
         }
         ?>
     </div>
