@@ -20,7 +20,7 @@ class BookRepository extends AbstractRepository
     }
     public function getAllBooksAvailables(): array
     {
-        $stmt = $this->db->prepare("SELECT * FROM books WHERE available = 1");
+        $stmt = $this->db->prepare("SELECT * FROM books B INNER JOIN users U ON B.owner = U.id WHERE B.available = 1");
         $stmt->execute();
         return $stmt->fetchAll();
     }

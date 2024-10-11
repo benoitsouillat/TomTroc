@@ -3,8 +3,6 @@
 require_once 'config/config.php';
 require_once 'config/autoload.php';
 
-// On récupère l'action demandée par l'utilisateur.
-// Si aucune action n'est demandée, on affiche la page d'accueil.
 if (!empty($_REQUEST['action'])) {
     $action = $_REQUEST['action'];
 } else {
@@ -16,6 +14,10 @@ try {
         case 'home':
             $bookController = new BookController();
             $bookController->showHome();
+            break;
+        case 'books':
+            $bookController = new BookController();
+            $bookController->showBooks();
             break;
 
         default:

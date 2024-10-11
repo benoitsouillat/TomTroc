@@ -46,5 +46,5 @@
             <p>Proposez un échange et discutez avec d'autres passionnés de lecture.</p>
         </div>
     </div>
-    <a href="/books" class="btn btn-reverse" title="Tous les livres">Voir tous les livres</a>
+    <a href="/index?action=books" class="btn btn-reverse" title="Tous les livres">Voir tous les livres</a>
 </section>
