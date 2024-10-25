@@ -44,9 +44,12 @@ p, li, a {
 
 .container {
     width: 1200px;
+    margin: auto;
     display: flex;
     justify-content: center;
-
+}
+.screen50 {
+    display: flex;
 }
 
 .section-marge {

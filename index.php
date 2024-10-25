@@ -19,6 +19,10 @@ try {
             $bookController = new BookController();
             $bookController->showBooks();
             break;
+        case 'login':
+            $bookController = new AccountController();
+            $bookController->showLogin();
+            break;
 
         default:
             throw new Exception("La page demandée n'existe pas.");

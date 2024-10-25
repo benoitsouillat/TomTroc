@@ -24,14 +24,14 @@
                 <li class="link-container"><a href="/index.php?action=books">Nos livres à l'échange</a></li>
             </ul>
             <ul aria-label="user-navigation">
-                <li class="link-container"><a href="/user/messages">Messagerie</a></li>
-                <li class="link-container"><a href="/user/account">Mon Compte</a></li>
+                <li class="link-container"><a href="/index.php?action=messages">Messagerie</a></li>
+                <li class="link-container"><a href="/index.php?action=account">Mon Compte</a></li>
                 <li class="link-container">
                     <?php
                     if (!isset($_SESSION['user']))
-                        echo '<a href="/user/login">Connexion</a>';
+                        echo '<a href="/index.php?action=login">Connexion</a>';
                     else
-                        echo '<a href="/user/logout">Déconnexion</a>';
+                        echo '<a href="/index.php?action=logout">Déconnexion</a>';
                     ?>
                 </li>
             </ul>
