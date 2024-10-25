@@ -5,25 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TomTroc</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./public/css/style.css">
 </head>
 
 <body>
-    <header>
-        <nav role="main-navigation">
-            <div role="title">
-                <a href="/home" title="TomTroc"><img src="" alt="logo">
-                    <h1>Tom Troc</h1>
-                </a>
-            </div>
-            <ul>
-                <li><a href="/home">Accueil</a></li>
-                <li><a href="/book/trade">Nos livres à l'échange</a></li>
+    <header class="">
+        <nav class="navigation container" role="navigation">
+            <ul aria-label="main-navigation">
+                <li class="logo-container"><a href="/" title="TomTroc"><img src="./public/media/logo.png" alt="logo">
+                    </a></li>
+                <li class="link-container"><a href="/">Accueil</a></li>
+                <li class="link-container"><a href="/index.php?action=books">Nos livres à l'échange</a></li>
             </ul>
-            <ul>
-                <li><a href="/user/messages">Messagerie</a></li>
-                <li><a href="/user/account">Mon Compte</a></li>
-                <li>
+            <ul aria-label="user-navigation">
+                <li class="link-container"><a href="/user/messages">Messagerie</a></li>
+                <li class="link-container"><a href="/user/account">Mon Compte</a></li>
+                <li class="link-container">
                     <?php
                     if (!isset($_SESSION['user']))
                         echo '<a href="/user/login">Connexion</a>';
@@ -43,12 +45,12 @@
             <ul>
                 <li><a href="/confidentiality">Politique de confidentialité</a></li>
                 <li><a href="/legals">Mentions légales</a></li>
+                <li>
+                    <p>Tom Troc &copy;</p>
+                </li>
+                <li><a href="/"><img src="/public/media/logo-tt.png" alt="logo"></a></li>
             </ul>
         </nav>
-        <div>
-            <p>Tom Troc &copy;</p>
-            <a href="/home"><img src="" alt="logo"></a>
-        </div>
     </footer>
 </body>
 
