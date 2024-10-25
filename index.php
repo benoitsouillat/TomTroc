@@ -19,6 +19,14 @@ try {
             $bookController = new BookController();
             $bookController->showBooks();
             break;
+        case 'book':
+            $bookId = $_REQUEST['book_id'];
+            if (!$bookId) {
+                /* Redirection */
+            }
+            $bookController = new BookController();
+            $bookController->showBook((int)$bookId);
+            break;
         case 'login':
             $bookController = new AccountController();
             $bookController->showLogin();

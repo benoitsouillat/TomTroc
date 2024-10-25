@@ -7,6 +7,6 @@ class AccountController
     public function showLogin(): void
     {
         $view = new View("Connexion");
-        $view->render("login");
+        $view->render("account/login");
     }
 }

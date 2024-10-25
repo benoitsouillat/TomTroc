@@ -26,7 +26,7 @@ class BookRepository extends AbstractRepository
     }
     public function getBookById(int $id): stdClass
     {
-        $stmt = $this->db->prepare("SELECT * FROM books WHERE id = :id");
+        $stmt = $this->db->prepare("SELECT * FROM books B INNER JOIN users U ON B.owner = U.id WHERE B.id = :id");
         $stmt->bindValue(':id', $id);
         $stmt->execute();
         return $stmt->fetch();

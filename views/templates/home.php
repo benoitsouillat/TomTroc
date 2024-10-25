@@ -13,7 +13,7 @@
                 <a href="" title="Découvrir" class="btn btn-small">Découvrir</a>
             </p>
         </div>
-        <div>
+        <div class="image-container">
             <img src='./public/media/hamza-nouasria.png' alt='Lecteur au milieu des livres' />
         </div>
 
@@ -24,12 +24,12 @@
     <div class="books-container">
         <?php
         foreach ($books as $book) {
-            echo (sprintf('<aside class="books-content">
+            echo (sprintf('<a href="/index.php?action=book&book_id=%s"><aside class="books-content">
                         <img src="%s" alt="%s" class="book-thumbnail">
                         <h3 class="book-title">%s</h3>
                         <p class="book-author">%s</p>
                         <p class="book-seller">Vendu par : %s</p>
-                    </aside>', $book->picture, $book->title, $book->title, $book->author, $book->seller));
+                    </aside></a>', $book->id, $book->picture, $book->title, $book->title, $book->author, $book->seller));
         }
         ?>
     </div>

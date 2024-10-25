@@ -17,13 +17,13 @@
 <body>
     <header class="">
         <nav class="navigation container" role="navigation">
-            <ul aria-label="main-navigation">
+            <ul class="main-navigation" aria-label="main-navigation">
                 <li class="logo-container"><a href="/" title="TomTroc"><img src="./public/media/logo.png" alt="logo">
                     </a></li>
                 <li class="link-container"><a href="/">Accueil</a></li>
                 <li class="link-container"><a href="/index.php?action=books">Nos livres à l'échange</a></li>
             </ul>
-            <ul aria-label="user-navigation">
+            <ul class="user-navigation" aria-label="user-navigation">
                 <li class="link-container"><a href="/index.php?action=messages">Messagerie</a></li>
                 <li class="link-container"><a href="/index.php?action=account">Mon Compte</a></li>
                 <li class="link-container">
