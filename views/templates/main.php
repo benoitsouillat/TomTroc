@@ -11,6 +11,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./public/css/style.css">
+    <script src="https://kit.fontawesome.com/1864bd3c57.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
