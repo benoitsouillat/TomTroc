@@ -1,5 +1,12 @@
 <section class="container account-container">
     <h1>Mon compte</h1>
+    <?php
+    if (!empty($_SESSION['connection']['message'])) {
+        echo $_SESSION['connection']['message'];
+    }
+    $_SESSION['connection']['message'] = [];
+
+    ?>
     <div class="data-container">
         <div class="image-container">
             <img class='thumbnail-user' src="/public/media/users/2_john_doe.jpg" alt="profil-thumbnail">

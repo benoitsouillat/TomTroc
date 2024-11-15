@@ -28,7 +28,7 @@
                 <li class="link-container"><a href="/index.php?action=account">Mon Compte</a></li>
                 <li class="link-container">
                     <?php
-                    if (!isset($_SESSION['user']))
+                    if (empty($_SESSION['username']))
                         echo '<a href="/index.php?action=login">Connexion</a>';
                     else
                         echo '<a href="/index.php?action=logout">Déconnexion</a>';

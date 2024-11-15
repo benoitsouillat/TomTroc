@@ -33,6 +33,23 @@ p, li, a {
 .text-red {
     color: #CB2D2D;
 }
+.message {
+    width: 50%;
+    padding: 15px 30px;
+    border: solid 2px #000;
+    border-radius: 10px;
+}
+.success-message {
+    background-color: #c6fae4;
+    color: #00AC66;
+    border-color: #00AC66;
+}
+.error-message {
+    background-color:#e9bdbd;
+    color:#CB2D2D;
+    border-color: #CB2D2D;
+
+}
 .btn {
     color: #FFF;
     background-color:  var(--green);

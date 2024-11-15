@@ -1,7 +1,7 @@
 <?php
-
 require_once 'config/config.php';
 require_once 'config/autoload.php';
+session_start();
 
 if (!empty($_REQUEST['action'])) {
     $action = $_REQUEST['action'];
@@ -28,17 +28,20 @@ try {
             $bookController->showBook((int)$bookId);
             break;
         case 'login':
-            $bookController = new AccountController();
-            $bookController->showLogin();
+            $accountController = new AccountController();
+            $accountController->showLogin();
             break;
         case 'register':
-            $bookController = new AccountController();
-            $bookController->showRegister();
+            $accountController = new AccountController();
+            $accountController->showRegister();
             break;
         case 'account':
-            $bookController = new AccountController();
-            $bookController->showAccount();
+            $accountController = new AccountController();
+            $accountController->showAccount();
             break;
+        case 'logout':
+            $accountController = new AccountController();
+            $accountController->logout();
 
         default:
             throw new Exception("La page demandée n'existe pas.");

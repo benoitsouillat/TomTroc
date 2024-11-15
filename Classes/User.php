@@ -6,8 +6,7 @@ class User
     private ?int $id = null;
     private ?string $email = null;
     private ?string $password = null;
-    private ?string $firstname = null;
-    private ?string $lastname = null;
+    private ?string $pseudo = null;
 
     public function __construct() {}
 
@@ -33,26 +32,14 @@ class User
         return $this;
     }
 
-    public function getFirstname(): string
+    public function getPseudo(): string
     {
-        return $this->firstname;
+        return $this->pseudo;
     }
 
-    public function setFirstname(string $firstname): self
+    public function setPseudo(string $pseudo): self
     {
-        $this->firstname = $firstname;
-
-        return $this;
-    }
-
-    public function getLastname(): string
-    {
-        return $this->lastname;
-    }
-
-    public function setLastname(string $lastname): self
-    {
-        $this->lastname = $lastname;
+        $this->pseudo = $pseudo;
 
         return $this;
     }
