@@ -5,15 +5,14 @@
         echo $_SESSION['connection']['message'];
     }
     $_SESSION['connection']['message'] = [];
-
     ?>
     <div class="data-container">
         <div class="image-container">
-            <img class='thumbnail-user' src="/public/media/users/2_john_doe.jpg" alt="profil-thumbnail">
-            <a class="text-grey" href='#'>modifier</a>
+            <img class='thumbnail-user' src=<?= $_SESSION['user']['thumbnail'] ?> alt="profil-thumbnail">
+            <a class="text-grey" href='/index.php?action=edit_thumbnail'>modifier</a>
         </div>
         <div class="info-container">
-            <p class="pseudo">Nathalire</p>
+            <p class="pseudo"><?= $_SESSION['user']['pseudo'] ?></p>
             <p class="member-since text-grey">Membre depuis 1 an</p>
             <p class="library"><span>Bibliothèque</span><br>
                 <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14" viewBox="0 0 11 14" fill="none">
@@ -30,14 +29,49 @@
 
     <div class="informations-container">
         <h2>Vos informations personnelles</h2>
-        <form>
-            <label for="email">Adresse email</label>
-            <input name="email" id="email" class="form-item" type="email">
-            <label for="password">Mot de passe</label>
-            <input name="password" id="password" class="form-item" type="password">
-            <label for="pseudo">Pseudo</label>
-            <input name="pseudo" id="pseudo" class="form-item" type="pseudo">
-            <input type="submit" class="btn btn-reverse" value="Enregistrer">
+
+        <form method="post"
+            action="index.php?action=account<?= isset($_GET['edit-password']) ? '&edit-password' : '' ?>">
+            <?php
+            if (!empty($_SESSION['user']['errors'])) {
+                echo "<div class='message error-message w-auto'>";
+                foreach ($_SESSION['user']['errors'] as $error) {
+                    echo $error . '<br>';
+                }
+                echo "</div>";
+                $_SESSION['user']['errors'] = [];
+            }
+            if (!empty($_SESSION['user']['message'])) {
+                echo sprintf("<div class='message success-message w-auto'>%s</div>", $_SESSION['user']['message']);
+                $_SESSION['user']['message'] = [];
+            }
+
+            ?>
+            <?php
+            if (!isset($_GET['edit-password'])) {
+            ?>
+                <label for="email">Adresse email</label>
+                <input name="email" id="email" class="form-item" type="email" value=<?= $_SESSION['user']['email'] ?>>
+                <label for="pseudo">Pseudo</label>
+                <input name="pseudo" id="pseudo" class="form-item" type="text" value=<?= $_SESSION['user']['pseudo'] ?>>
+                <div class="d-flex justify-between align-end">
+                    <input type="submit" class="btn btn-reverse" value="Enregistrer">
+                    <a href="./?action=account&edit-password" class="text-grey">Modifier le mot de passe</a>
+                </div>
+            <?php
+            } else {
+            ?>
+                <label for="password">Mot de passe actuel</label>
+                <input name="password" id="password" class="form-item" type="password" required>
+                <label for="password">Nouveau mot de passe</label>
+                <input name="newpassword" id="newpassword" class="form-item" type="password" required>
+                <label for="password">Confirmer le mot de passe</label>
+                <input name="confirm" id="confirm" class="form-item" type="password" required>
+                <input type="submit" class="btn btn-reverse" value="Enregistrer">
+
+            <?php
+            }
+            ?>
 
         </form>
     </div>

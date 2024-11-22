@@ -38,6 +38,8 @@ p, li, a {
     padding: 15px 30px;
     border: solid 2px #000;
     border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .success-message {
     background-color: #c6fae4;
@@ -49,6 +51,9 @@ p, li, a {
     color:#CB2D2D;
     border-color: #CB2D2D;
 
+}
+.w-auto {
+    width: auto;
 }
 .btn {
     color: #FFF;
@@ -133,6 +138,15 @@ p, li, a {
         flex-basis: 50%;
         width: 50%;
     }
+}
+.d-flex {
+    display: flex;
+}
+.justify-between {
+    justify-content: space-between;
+}
+.align-end {
+    align-items: flex-end;
 }
 .section-marge {
     padding-top: 80px;
@@ -535,4 +549,8 @@ footer {
             height: 130px;
         }
     }
+    .edit-picture-container {
+    width: 100%;
 }
+}
+

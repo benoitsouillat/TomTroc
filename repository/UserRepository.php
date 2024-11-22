@@ -29,9 +29,53 @@ class UserRepository extends AbstractRepository
         $sql = "INSERT INTO users (email, password, pseudo) VALUES (:email, :password, :pseudo)";
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue(':email', htmlspecialchars($user['email']));
-        $stmt->bindValue(':password', crypt($user['password'], PASSWORD_BCRYPT));
+        $stmt->bindValue(':password', password_hash($user['password'], PASSWORD_BCRYPT));
         $stmt->bindValue(':pseudo', htmlspecialchars($user['pseudo']));
         $stmt->execute();
     }
-    public function saveThumbnail(array $file): void {}
+
+    public function updateUser(array $user): void
+    {
+        $userData = $this->getUserByEmail($user['email']);
+        $userID = $userData->id;
+        $sql = "UPDATE users SET email = :email, password = :password, pseudo = :pseudo WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':id', $userID);
+        $stmt->bindValue(':email', htmlspecialchars($user['email']));
+        $stmt->bindValue(':password', password_hash($user['password'], PASSWORD_BCRYPT));
+        $stmt->bindValue(':pseudo', htmlspecialchars($user['pseudo']));
+        $stmt->execute();
+    }
+
+    public function updateUserInfo(array $user): void
+    {
+        $userData = $this->getUserByEmail($_SESSION['user']['email']);
+        $userID = $userData->id;
+        $sql = "UPDATE users SET email = :email, pseudo = :pseudo WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':id', $userID);
+        $stmt->bindValue(':email', htmlspecialchars($user['email']));
+        $stmt->bindValue(':pseudo', htmlspecialchars($user['pseudo']));
+        $stmt->execute();
+    }
+
+    public function checkEmailUserInfo(string $email): bool
+    {
+        $dbUserByEmail = $this->getUserByEmail($email);
+        if (isset($dbUserByEmail) && $dbUserByEmail->id != $_SESSION['user']['id']) {
+            return false;
+        }
+        return true;
+    }
+
+    public function saveThumbnail(string $url): void
+    {
+        $userData = $this->getUserByEmail($_SESSION['user']['email']);
+        $userID = $userData->id;
+        $sql = "UPDATE users SET thumbnail = :thumbnail WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':id', $userID);
+        $stmt->bindValue(':thumbnail', $url);
+        $stmt->execute();
+    }
 }
