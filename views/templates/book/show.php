@@ -18,7 +18,7 @@
         <p>PROPRIÉTAIRE</p>
         <div class='owner-container'>
             <?=
-            sprintf("<img class='thumbnail-user' src=%s alt=%s ><p>%s</p>", $book->thumbnail, $book->owner, $book->owner);
+            sprintf("<img class='thumbnail-user' src=%s alt=%s ><p>%s</p>", $book->thumbnail, $book->pseudo, $book->pseudo);
             ?>
         </div>
         <div class="btn-container">

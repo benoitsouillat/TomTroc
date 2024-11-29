@@ -4,7 +4,11 @@
     if (!empty($_SESSION['connection']['message'])) {
         echo $_SESSION['connection']['message'];
     }
+    if (!empty($_SESSION['editbook']['message'])) {
+        echo  $_SESSION['editbook']['message'];
+    }
     $_SESSION['connection']['message'] = [];
+    $_SESSION['editbook']['message'] = [];
     ?>
     <div class="data-container">
         <div class="image-container">
@@ -89,17 +93,24 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><img src="url_de_l_image" alt="Photo" width="50"></td>
-                    <td>The Kinkfolk Table</td>
-                    <td>Nathan Williams</td>
-                    <td>J'ai récemment plongé dans les pages de ....</td>
-                    <td><span class="available">Disponible</span></td>
-                    <td>
-                        <a href='#' class="text-darkgrey">Éditer</a>
-                        <a href="#" class="text-red">Supprimer</a>
-                    </td>
-                </tr>
+                <?php
+                foreach ($books as $book) {
+                    $available = $book->available == 1 ? "<span class='available'>Disponible</span>" : "<span class='unavailable'>Réservé</span>";
+                    echo sprintf('
+                    <tr>
+                        <td><img src="%s" alt="%s" width="50"></td>
+                        <td>%s</td>
+                        <td>%s</td>
+                        <td>%s</td>
+                        <td>%s</td>
+                        <td>
+                            <a href="/index.php?action=edit_book&book_id=%s" class="text-darkgrey">Éditer</a>
+                            <a href="/index.php?action=delete_book&book_id=%s" class="text-red">Supprimer</a>
+                        </td>
+                    </tr>', $book->picture, $book->title, $book->title, $book->author, $book->description, $available, $book->id, $book->id);
+                }
+
+                ?>
             </tbody>
         </table>
     </div>

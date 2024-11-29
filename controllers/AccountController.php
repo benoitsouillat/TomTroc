@@ -107,9 +107,11 @@ class AccountController
                 }
             }
         }
+        $bookRepository = new BookRepository();
+        $books = $bookRepository->getAllBooksOfUser($_SESSION['user']['id']);
 
         $view = new View("Mon compte");
-        $view->render("account/account");
+        $view->render("account/account", ['books' => $books]);
     }
     public function showEditThumbnail(): void
     {

@@ -20,16 +20,25 @@ try {
             $bookController->showBooks();
             break;
         case 'book':
-            $bookId = $_REQUEST['book_id'];
-            if (!$bookId) {
+            if (isset($_REQUEST['book_id'])) {
+                $bookId = $_REQUEST['book_id'];
+            }
+            if (!isset($bookId)) {
                 /* Redirection */
             }
             $bookController = new BookController();
             $bookController->showBook((int)$bookId);
             break;
         case 'edit_book':
+            if (isset($_REQUEST['book_id'])) {
+                $bookId = $_REQUEST['book_id'];
+            }
             $bookController = new BookController();
-            $bookController->editBook();
+            if (!isset($bookId)) {
+                $bookController->editBook();
+            } else {
+                $bookController->editBook((int)$bookId);
+            }
             break;
         case 'login':
             $accountController = new AccountController();
