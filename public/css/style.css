@@ -22,7 +22,7 @@ p, li, a {
 }
 .text-center {
     text-align: center;
-    margin: auto;
+    margin: 0 auto;
 }
 .text-grey {
     color: var(--grey);

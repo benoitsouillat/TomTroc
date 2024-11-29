@@ -130,12 +130,4 @@ class AccountController
         $_SESSION['connection']['errors'] = "Vous avez été déconnecté.";
         header('Location: /index.php?action=login');
     }
-    public function checkAccount(string $email): bool
-    {
-        $userRepository = new UserRepository();
-        if ($userRepository->getUserByEmail($email))
-            return true;
-        else
-            return false;
-    }
 }

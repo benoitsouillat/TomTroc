@@ -45,9 +45,6 @@
                 echo sprintf("<div class='message success-message w-auto'>%s</div>", $_SESSION['user']['message']);
                 $_SESSION['user']['message'] = [];
             }
-
-            ?>
-            <?php
             if (!isset($_GET['edit-password'])) {
             ?>
                 <label for="email">Adresse email</label>
@@ -67,12 +64,15 @@
                 <input name="newpassword" id="newpassword" class="form-item" type="password" required>
                 <label for="password">Confirmer le mot de passe</label>
                 <input name="confirm" id="confirm" class="form-item" type="password" required>
-                <input type="submit" class="btn btn-reverse" value="Enregistrer">
+                <div class="d-flex justify-between align-end">
+                    <input type="submit" class="btn btn-reverse" value="Enregistrer">
+                    <a href="./?action=account" class="text-grey text-center">Retour</a>
+                </div>
+
 
             <?php
             }
             ?>
-
         </form>
     </div>
 
