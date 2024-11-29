@@ -3,7 +3,7 @@
 ?>
 
 <section id="presentation" class="section-marge">
-    <div class="container">
+    <div class="container hero-container">
         <div>
             <h1>Rejoignez nos lecteurs passionnés</h1>
             <p>Donnez une nouvelle vie à vos livres en les échangeant avec d'autres amoureux de la lecture. Nous croyons

@@ -34,4 +34,16 @@ class BookController
         $view = new View("Livre seul");
         $view->render("book/show", ['book' => $book]);
     }
+    public function editBook(?int $bookId = null): void
+    {
+        $bookRepository = new BookRepository();
+        if (!empty($bookId)) {
+            $book = $bookRepository->getBookById($bookId);
+            $view = new View("Edition d'un livre");
+            $view->render("book/edit", ['book' => $book]);
+        } else {
+            $view = new View("Création d'un livre");
+            $view->render("book/create");
+        }
+    }
 }

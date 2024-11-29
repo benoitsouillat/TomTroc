@@ -102,6 +102,10 @@ p, li, a {
 .container {
     width: 1440px;
     margin: auto;
+    /* display: flex;
+    justify-content: center; */
+}
+.hero-container {
     display: flex;
     justify-content: center;
 }
@@ -405,10 +409,17 @@ footer {
 }
 
 .book-container {
+    padding: 50px;
+    border-radius: 20px;
+    .image-container {
+        p {
+            font-size: 14px;
+        }
+    }
     .description-container {
-        margin-top: 60px;
+        /* margin-top: 60px; */
         padding-left: 80px;
-        padding-right: 150px;
+        padding-right: 100px;
         p {
             font-size: 14px;
             font-weight: 400;
@@ -416,6 +427,39 @@ footer {
     }
     .author {
         color: var(--grey);
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        padding-top: 15px;
+        .book-formgroup {
+            display: flex;
+            flex-direction: column;
+            border: none;
+            label {
+                color: var(--grey);
+                font-weight: 400;
+                font-size: 14px;
+                padding-bottom: 10px;
+            }
+            input:not([type='submit']), textarea, select {
+                background-color: var(--lightblue);
+                border: solid 1px #F0F0F0;
+                padding-left: 15px;
+                margin-bottom: 25px;
+                border-radius: 6px;
+            }
+            input:not([type='submit']), select {
+                height: 50px;
+            }
+            textarea {
+                padding-top: 15px;
+            }
+        }
+        .btn {
+            margin-left: 15px;
+            max-width: 325px;
+        }
     }
 }
 

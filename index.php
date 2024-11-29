@@ -27,6 +27,10 @@ try {
             $bookController = new BookController();
             $bookController->showBook((int)$bookId);
             break;
+        case 'edit_book':
+            $bookController = new BookController();
+            $bookController->editBook();
+            break;
         case 'login':
             $accountController = new AccountController();
             $accountController->showLogin();
