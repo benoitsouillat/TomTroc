@@ -26,7 +26,7 @@
                     <path fill-rule="evenodd" clip-rule="evenodd"
                         d="M3.27482 0.0648067H1.01496C0.454414 0.0648067 0 0.519224 0 1.07977V12.6342C0 13.1947 0.454416 13.6491 1.01496 13.6491H3.27482C3.83537 13.6491 4.28979 13.1947 4.28979 12.6342V1.07977C4.28979 0.519221 3.83537 0.0648067 3.27482 0.0648067ZM0.714965 1.07977C0.714965 0.914086 0.849279 0.779771 1.01496 0.779771H3.27482C3.44051 0.779771 3.57482 0.914086 3.57482 1.07977V12.6342C3.57482 12.7999 3.44051 12.9342 3.27482 12.9342H1.01496C0.849279 12.9342 0.714965 12.7999 0.714965 12.6342V1.07977Z"
                         fill="#292929" />
-                </svg>4 livres
+                </svg><?= count($books) ?> <?= count($books) > 1 ? 'livres' : 'livre' ?>
             </p>
         </div>
     </div>
@@ -51,27 +51,27 @@
             }
             if (!isset($_GET['edit-password'])) {
             ?>
-                <label for="email">Adresse email</label>
-                <input name="email" id="email" class="form-item" type="email" value=<?= $_SESSION['user']['email'] ?>>
-                <label for="pseudo">Pseudo</label>
-                <input name="pseudo" id="pseudo" class="form-item" type="text" value=<?= $_SESSION['user']['pseudo'] ?>>
-                <div class="d-flex justify-between align-end">
-                    <input type="submit" class="btn btn-reverse" value="Enregistrer">
-                    <a href="./?action=account&edit-password" class="text-grey">Modifier le mot de passe</a>
-                </div>
+            <label for="email">Adresse email</label>
+            <input name="email" id="email" class="form-item" type="email" value=<?= $_SESSION['user']['email'] ?>>
+            <label for="pseudo">Pseudo</label>
+            <input name="pseudo" id="pseudo" class="form-item" type="text" value=<?= $_SESSION['user']['pseudo'] ?>>
+            <div class="d-flex justify-between align-end">
+                <input type="submit" class="btn btn-reverse" value="Enregistrer">
+                <a href="./?action=account&edit-password" class="text-grey">Modifier le mot de passe</a>
+            </div>
             <?php
             } else {
             ?>
-                <label for="password">Mot de passe actuel</label>
-                <input name="password" id="password" class="form-item" type="password" required>
-                <label for="password">Nouveau mot de passe</label>
-                <input name="newpassword" id="newpassword" class="form-item" type="password" required>
-                <label for="password">Confirmer le mot de passe</label>
-                <input name="confirm" id="confirm" class="form-item" type="password" required>
-                <div class="d-flex justify-between align-end">
-                    <input type="submit" class="btn btn-reverse" value="Enregistrer">
-                    <a href="./?action=account" class="text-grey text-center">Retour</a>
-                </div>
+            <label for="password">Mot de passe actuel</label>
+            <input name="password" id="password" class="form-item" type="password" required>
+            <label for="password">Nouveau mot de passe</label>
+            <input name="newpassword" id="newpassword" class="form-item" type="password" required>
+            <label for="password">Confirmer le mot de passe</label>
+            <input name="confirm" id="confirm" class="form-item" type="password" required>
+            <div class="d-flex justify-between align-end">
+                <input type="submit" class="btn btn-reverse" value="Enregistrer">
+                <a href="./?action=account" class="text-grey text-center">Retour</a>
+            </div>
 
 
             <?php
@@ -87,7 +87,7 @@
                     <th>Photo</th>
                     <th>Titre</th>
                     <th>Auteur</th>
-                    <th>Description</th>
+                    <th class="w-50">Description</th>
                     <th>Disponibilité</th>
                     <th>Action</th>
                 </tr>
@@ -97,20 +97,21 @@
                 foreach ($books as $book) {
                     $available = $book->available == 1 ? "<span class='available'>Disponible</span>" : "<span class='unavailable'>Réservé</span>";
                     echo sprintf('
-                    <tr>
-                        <td><img src="%s" alt="%s" width="50"></td>
-                        <td>%s</td>
-                        <td>%s</td>
-                        <td>%s</td>
-                        <td>%s</td>
-                        <td>
-                            <a href="/index.php?action=edit_book&book_id=%s" class="text-darkgrey">Éditer</a>
-                            <a href="/index.php?action=delete_book&book_id=%s" class="text-red">Supprimer</a>
+                    <tr class="book-row">
+                        <td><div class="image-book"><img src="%s" alt="%s" width="50"></div></td>
+                        <td><div class="title-book">%s</div></td>
+                        <td><div class="author-book">%s</div></td>
+                        <td><div class="description-book">%s</div></td>
+                        <td><div class="available-book">%s</div></td>
+                        <td><div class="actions-book">
+                            <a href="/index.php?action=edit_book&book_id=%s" class="text-darkgrey link">Éditer</a>
+                            <a href="/index.php?action=delete_book&book_id=%s" class="text-red link deleteBook">Supprimer</a>
                         </td>
-                    </tr>', $book->picture, $book->title, $book->title, $book->author, $book->description, $available, $book->id, $book->id);
+                    </tr>', $book->picture, $book->title, $book->title, $book->author, $book->description, $available, $book->book_id, $book->book_id);
                 }
-
                 ?>
+                <p class="d-flex justify-end"><a href='/index.php?action=edit_book' class="text-grey link">Ajouter un
+                        livre</a></p>
             </tbody>
         </table>
     </div>

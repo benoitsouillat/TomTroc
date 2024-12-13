@@ -108,7 +108,7 @@ class AccountController
             }
         }
         $bookRepository = new BookRepository();
-        $books = $bookRepository->getAllBooksOfUser($_SESSION['user']['id']);
+        $books = $bookRepository->getAllBooksOfUser((int)$_SESSION['user']['id']);
 
         $view = new View("Mon compte");
         $view->render("account/account", ['books' => $books]);

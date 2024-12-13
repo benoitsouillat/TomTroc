@@ -1,7 +1,9 @@
-<div class="breadcrumb"><a href='#'>Nos livres > Esther</a></div>
+<div class="breadcrumb container">
+    <p class="text-grey"><a href='/index.php?action=books'>Nos livres</a> > <?= $book->title ?></p>
+</div>
 <div class="book-container screen50 container">
     <div class="image-container">
-        <img src='/public/media/esther.png' alt="title">
+        <img src="<?= $book->picture ?>" alt="title">
     </div>
     <div class='description-container'>
         <?=

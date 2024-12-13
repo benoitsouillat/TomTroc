@@ -40,6 +40,16 @@ try {
                 $bookController->editBook((int)$bookId);
             }
             break;
+        case 'delete_book':
+            $bookId = $_REQUEST['book_id'];
+            $bookController = new BookController();
+            $bookController->deleteBook((int)$bookId);
+            break;
+        case 'edit_book_picture':
+            $bookId = $_REQUEST['book_id'];
+            $bookController = new BookController();
+            $bookController->editPicture($bookId);
+            break;
         case 'login':
             $accountController = new AccountController();
             $accountController->showLogin();

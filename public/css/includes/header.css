@@ -1,0 +1,35 @@
+/*********************** Header ****************************/
+header {
+    display: flex;
+    justify-content: center;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    ul {
+        width: 50%;
+        list-style: none;
+        display: flex;
+    }
+    .main-navigation {
+        padding-left: 130px;
+    }
+    .user-navigation {
+        justify-content: flex-end;
+        padding-right: 130px;
+    }
+    .link-container {
+    padding: 15px 18px;
+        a {
+            color: #000;
+            text-decoration: none;
+            font-family: Inter;
+            font-size: 14px;
+        }
+        a:hover {
+            color: var(--green);
+            font-weight: 600;
+        }
+}
+}

@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="breadcrumb"><a href='#'>
+    <div class="breadcrumb"><a href='/index.php?action=account'>
             <- Retour</a>
     </div>
     <?php if (empty($book)) {
@@ -12,13 +12,21 @@
 </div>
 <div class="book-container editbook-container screen50 container">
     <div class="image-container">
-        <p class="text-grey">Photo</p>
-        <img src='/public/media/esther.png' alt="title">
-        <div class="linkend">
-            <a
-                href='/index.php/action=edit_book_picture<?= isset($book) ? sprintf('&book_id=%s', $book->book_id) : '' ?>'>Modifier
-                la photo</a>
-        </div>
+        <?php
+        if (!empty($book)) {
+        ?>
+            <p class="text-grey">Photo</p>
+            <img src="<?= sprintf('%s', $book->picture) ?>" alt="<?= $book->title ?>">
+            <div class="linkend">
+                <a
+                    href='/index.php?action=edit_book_picture<?= isset($book) ? sprintf('&book_id=%s', $book->book_id) : '' ?>'>Modifier
+                    la photo</a>
+            </div>
+        <?php
+        }
+        ?>
+
+
     </div>
     <div class="description-container">
         <form method="post"
@@ -44,6 +52,18 @@
                     <option value="0" <?= isset($book) && $book->available == 0 ? 'selected' : '' ?>>Réservé</option>
                 </select>
             </fieldset>
+
+            <?php
+            if (empty($book)) {
+            ?>
+                <fieldset class="book_picture_fieldset" id='book_picture_field_absolute'>
+                    <label class="text-grey" for='book_picture'>Choisissez une image</label>
+                    <input type="file" name="book_picture" id="book_picture"
+                        accept="image/png, image/jpeg, image/jpg, image/webp, image/gif">
+                </fieldset>
+            <?php
+            }
+            ?>
             <button type="submit" class="btn"><?= isset($book) ? 'Valider' : 'Enregistrer' ?></button>
         </form>
     </div>

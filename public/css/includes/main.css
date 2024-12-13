@@ -1,0 +1,123 @@
+
+body {
+    background-color: var(--bg-beige);
+    font-family: Inter;
+    margin: 0;
+}
+h1, h2 {
+    font-family: "Playfair Display";
+    font-weight: 400;
+    font-size: 36px;
+}
+p, li, a {
+    font-family: inter;
+}
+.text-center {
+    text-align: center;
+    margin: 0 auto;
+}
+.text-grey {
+    color: var(--grey);
+}
+.text-darkgrey {
+    color: var(--darkgrey);
+}
+.text-red {
+    color: #CB2D2D;
+}
+.message {
+    width: 50%;
+    padding: 15px 30px;
+    border: solid 2px #000;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.success-message {
+    background-color: #c6fae4;
+    color: #00AC66;
+    border-color: #00AC66;
+}
+.error-message {
+    background-color:#e9bdbd;
+    color:#CB2D2D;
+    border-color: #CB2D2D;
+}
+.w-auto {
+    width: auto;
+}
+.w-50 {
+    width: 50%;
+}
+.btn {
+    color: #FFF;
+    background-color:  var(--green);
+    border: none;
+    padding: 22px 28px;
+    border-radius : 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: "Inter";
+    cursor: pointer;
+}
+.btn-reverse {
+    color: var(--green);
+    background-color: #FFF;
+    border: solid 1px var(--green);
+}
+.btn-container {
+    margin: 22px auto;
+}
+.btn-full { 
+    width: 80%;
+    margin: 30px 0;
+    display: inline-block;
+    text-align: center;
+}
+.container {
+    width: 1440px;
+    margin: auto;
+}
+.image-container {
+    img {
+        width: 100%;
+    }  
+}
+.breadcrumb a {
+    color: var(--grey);
+    text-decoration: none;
+}
+
+.thumbnail-user {
+    object-fit: cover;
+    object-position: 50%;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
+    margin: 8px;
+}
+.screen50 {
+    display: flex;
+    background-color: var(--bg-light);
+    > * {
+        flex-basis: 50%;
+        width: 50%;
+    }
+}
+.d-flex {
+    display: flex;
+}
+.justify-between {
+    justify-content: space-between;
+}
+.justify-end {
+    justify-content: flex-end;
+}
+.align-end {
+    align-items: flex-end;
+}
+.section-marge {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}

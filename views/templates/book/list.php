@@ -14,7 +14,7 @@
                         <h3 class="book-title">%s</h3>
                         <p class="book-author">%s</p>
                         <p class="book-seller">Vendu par : %s</p>
-                    </aside></a>', $book->id, $book->picture, $book->title, $book->title, $book->author, $book->seller));
+                    </aside></a>', $book->book_id, $book->picture, $book->title, $book->title, $book->author, $book->seller));
     }
     ?>
 </div>

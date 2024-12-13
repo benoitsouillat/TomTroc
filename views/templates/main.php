@@ -53,6 +53,8 @@
             </ul>
         </nav>
     </footer>
+    <script src="/public/js/confirm.js"></script>
+
 </body>
 
 </html>

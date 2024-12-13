@@ -1,0 +1,175 @@
+/****************** Espace Connexion *************************/
+
+.login-container, .register-container {
+    /* margin-top: 150px; */
+    align-self: center;
+    padding-left: 130px;
+
+    form {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        color: var(--grey);
+        margin-bottom: 10px;
+    }
+    input:not([type='submit']) {
+        border: none;
+        height: 50px;
+        padding-left: 15px;
+        margin-bottom: 25px;
+        border-radius: 6px;
+    }
+}
+
+/****************** Espace Compte *************************/
+.account-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    h1 {
+        width: 100%;
+    }
+    .data-container, .informations-container {
+        width: calc(50% - 15px);
+        background-color: #FFF;
+        border: none;
+        border-radius: 20px;
+    }
+    .data-container {
+        padding-top: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        .image-container {
+            width: 150px;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            img {
+                width: 130px;
+                height: 130px;
+            }
+        }
+        .pseudo {
+            text-align: center;
+            font-size: 24px;
+            font-family: "Playfair Display";
+        }
+        .library {
+            text-align: center;
+            font-size: 14px;
+            svg {
+                padding: 2px;
+            }
+            span {
+                font-size: 8px;
+                text-transform: uppercase;
+            }
+        }
+
+    }
+    .informations-container {
+        padding: 35px 0;
+        h2 { 
+            font-size: 16px;
+            padding: 0 115px;
+        }
+        form {
+            font-size: 14px;
+            padding: 0 115px;
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            color: var(--grey);
+            margin-bottom: 10px;
+        }
+        input:not([type='submit']) {
+            border: none;
+            height: 50px;
+            padding-left: 15px;
+            margin-bottom: 25px;
+            border-radius: 6px;
+            background-color: var(--lightblue);
+        }
+        .btn {
+            background-color: var(--bg-beige);
+            width: 50%;
+        }
+    }
+    .books-list-container {
+        width: 100%;
+        margin-bottom: 100px;
+        background-color: #FFF;
+        border: none;
+        border-radius: 20px;
+
+        .available {
+            background-color: #6DC5A1;
+            color: #FFF;
+            border: none;
+            border-radius: 30px;
+            padding: 4px 20px;
+            font-weight: 500;
+            font-size: 12px;
+        }
+        .unavailable {
+            background-color: #C56D6D;
+            color: #FFF;
+            border: none;
+            border-radius: 30px;
+            padding: 4px 20px;
+            font-weight: 500;
+            font-size: 12px;
+        }
+
+        .link {
+            padding: 0 15px 0 0;
+        }
+
+        table {
+            width: 100%;
+            color: var(--darkgrey);
+            padding: 30px 65px 0 65px;
+        }
+        thead {
+            text-transform: uppercase;
+            border-bottom: solid 1px var(--grey);
+            th {
+                font-size: 8px;
+                text-transform: uppercase;
+                max-width: 50%;
+            }
+        }
+        tbody tr {
+            text-align: center;
+            height: 130px;
+        }
+        .book-row {
+            .image-book {
+                max-width: 100%;
+            }
+            .title-book, .author-book {
+                text-align: left;
+                padding-left: 5px;
+            }
+            .description-book {
+                padding: 15px 20px;
+                height: 88px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 5;
+                -webkit-box-orient: vertical;
+            }
+        }
+    }
+    .edit-picture-container {
+    width: 100%;
+}
+}

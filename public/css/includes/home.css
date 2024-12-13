@@ -1,0 +1,145 @@
+.hero-container {
+    display: flex;
+    justify-content: center;
+}
+
+#presentation {
+    display: flex;
+    justify-content: center;
+}
+#presentation .container {
+    flex-wrap: wrap;
+    align-items: center;
+}
+#presentation .container > div {
+    width: 35%;
+}
+#presentation {
+    h1 {
+        padding: 15px 60px;
+        text-wrap: balance;
+    }
+    p {
+        padding: 15px 60px;
+        font-family: Inter; 
+    }
+    img {
+        width: 404px;
+    }
+    .image-container {
+        display: flex;
+        justify-content: center;
+    }
+}
+#last-books {
+    background-color: var(--bg-light);
+    h2 {
+        text-align: center;
+    }
+}
+.books-container {   
+    max-width: 950px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-bottom: 60px;
+    gap: 50px;
+
+    a {
+        color: unset;
+        text-decoration: unset;
+    }
+}
+.books-content {
+    width: 200px;
+    overflow: hidden;
+    background-color: #FFF;
+    img {
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        width: 100%;
+    }
+    h3, p {
+        padding-left: 15px;
+    }
+    h3 {
+        font-weight: 400;
+        font-size: 16px;
+    }
+    p {
+        color: var(--grey);
+        font-size: 14px;
+    }
+
+    .book-seller {
+        font-size: 10px;
+    }
+}
+
+#how-work {
+    h2, .description {
+        text-align: center;
+    }
+    .description {
+        text-wrap: balance;
+    }
+}
+.how-work-container {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    max-width: 1200px;
+    margin-bottom: 60px;
+
+}
+.how-work-content 
+{
+    background-color: #FFF;
+    text-align: center;
+    width: 215px;
+    height: 140px;
+    margin: 0 15px;
+    border-radius: 10px;
+    display: flex;
+    p {
+        font-size: 14px;
+        width: 180px;
+        margin: auto;
+    }
+}
+
+#our-worth {
+    margin-bottom: 160px;
+    .banner-container {
+        margin: auto;
+        max-width: 1440px;
+        height: 230px;
+        overflow: hidden;
+        background-image: url('/public/media/valeur-large.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50%, 50%;
+    }
+    h2 {
+        width: 392px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .signature {
+        color: var(--grey);
+        font-size: 12px;
+        height: 0;
+    }
+    p {
+        width: 392px;
+        font-size: 16px;
+        font-weight: 300;
+        margin: auto;
+        padding-bottom: 15px;
+        position: relative;
+    }
+    svg {
+        position: absolute;
+        left: 392px;
+    }
+}
