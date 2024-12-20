@@ -7,13 +7,14 @@ class Message
     private string $message;
     private int $user_from;
     private int $user_to;
+    private ?int $conversationID = null;
 
-    public function __construct(string $message, int $user_to)
+    public function __construct(string $message, int $conversationID)
     {
         $this->send_date = new DateTime();
         $this->message = htmlspecialchars($message);
         $this->user_from = (int)$_SESSION['user']['id'];
-        $this->user_to = $user_to;
+        $this->conversationID = $conversationID;
     }
 
     public function getDate(): DateTime
@@ -32,5 +33,17 @@ class Message
     public function getUserToID(): int
     {
         return $this->user_to;
+    }
+
+    public function getConversationID()
+    {
+        return $this->conversationID;
+    }
+
+    public function setConversationID($conversationID)
+    {
+        $this->conversationID = $conversationID;
+
+        return $this;
     }
 }

@@ -21,15 +21,13 @@ SET time_zone = "+00:00";
 -- Base de données : `tomtroc`
 --
 
-DROP TABLE IF EXISTS `users`;
 DROP TABLE IF EXISTS `books`;
-DROP TABLE IF EXISTS `conversations`;
 DROP TABLE IF EXISTS `messages`;
+DROP TABLE IF EXISTS `conversations`;
+DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE IF NOT EXISTS `users` (
     `id` INT(20) NOT NULL AUTO_INCREMENT,
-    `firstname` VARCHAR(50) NOT NULL, 
-    `lastname` VARCHAR(50) NOT NULL, 
     `email` VARCHAR(50) NOT NULL,
     `password` VARCHAR(255) NOT NULL,
     `pseudo` VARCHAR(50) NOT NULL, 
@@ -53,21 +51,25 @@ ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `conversations` (
     `id` INT(20) NOT NULL AUTO_INCREMENT,
-    `from` INT(20) NOT NULL,
-    `to` INT(20) NOT NULL, 
+    `user_from` INT(20) NOT NULL,
+    `user_to` INT(20) NOT NULL, 
     PRIMARY KEY(`id`),
-    FOREIGN KEY(`from`) REFERENCES users(id),
-    FOREIGN KEY(`to`) REFERENCES users(id)
+    FOREIGN KEY(`user_from`) REFERENCES users(id),
+    FOREIGN KEY(`user_to`) REFERENCES users(id)
 )
 ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `messages` (
     `id` INT(20) NOT NULL AUTO_INCREMENT,
-    `content` TEXT NOT NULL,
-    `order` INT(20) NOT NULL, 
+    `message` TEXT NOT NULL,
+    `send_date` DATE NOT NULL,
+    `user_from` INT(20) NOT NULL,
+    `user_to` INT(20) NOT NULL, 
     `conversation` INT(20),
     PRIMARY KEY(`id`),
-    FOREIGN KEY(`conversation`) REFERENCES conversations(id)
+    FOREIGN KEY(`conversation`) REFERENCES conversations(id),
+    FOREIGN KEY(`user_from`) REFERENCES users(id),
+    FOREIGN KEY(`user_to`) REFERENCES users(id)
 )
 ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
