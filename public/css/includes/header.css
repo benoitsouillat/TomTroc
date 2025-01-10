@@ -13,11 +13,11 @@ header {
         display: flex;
     }
     .main-navigation {
-        padding-left: 130px;
+        padding-left: 8%;
     }
     .user-navigation {
         justify-content: flex-end;
-        padding-right: 130px;
+        padding-right: 8%;
     }
     .link-container {
     padding: 15px 18px;
@@ -32,4 +32,8 @@ header {
             font-weight: 600;
         }
 }
+}
+
+.breadcrumb {
+    padding-left: 8%;
 }

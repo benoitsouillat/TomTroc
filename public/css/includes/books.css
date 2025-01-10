@@ -54,10 +54,15 @@
     .owner-container {
         border-radius: 30px;
         background-color: #FFF;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         width: fit-content;
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: fit-content;
+            text-decoration: none;
+            color: #292929;
+        }
         p {
             padding: 0 10px;
             padding-right: 18px;

@@ -113,15 +113,31 @@ class AccountController
         $view = new View("Mon compte");
         $view->render("account/account", ['books' => $books]);
     }
+    public function showPublicProfile(): void
+    {
+        $bookRepository = new BookRepository();
+        $userRepository = new UserRepository();
+        if (!empty($_GET['userID'])) {
+            $books = $bookRepository->getAllBooksOfUser((int)$_GET['userID']);
+            $user = $userRepository->getUserById((int)$_GET['userID']);
+        }
+        else {
+            $books = $bookRepository->getAllBooksOfUser((int)$_SESSION['user']['id']);
+            $user = $userRepository->getUserById((int)$_SESSION['user']['id']);
+        }
+
+        $view = new View("Profil de " . $user->pseudo);
+        $view->render("account/profile", ['books' => $books, 'user' => $user]);
+    }
     public function showEditThumbnail(): void
     {
         $view = new View("Editer");
         $view->render("account/editThumbnail");
     }
-    private function setUserSession(stdClass $user): void
+    private function setUserSession(stdClass $user): void // Passer un User en classe
     {
         $_SESSION['user'] = [];
-        $_SESSION['user']['id'] = $user->id;
+        $_SESSION['user']['id'] = (int)$user->id;
         $_SESSION['user']['pseudo'] = $user->pseudo;
         $_SESSION['user']['email'] = $user->email;
         $_SESSION['user']['thumbnail'] = $user->thumbnail;

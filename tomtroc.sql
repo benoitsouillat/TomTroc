@@ -53,9 +53,11 @@ CREATE TABLE IF NOT EXISTS `conversations` (
     `id` INT(20) NOT NULL AUTO_INCREMENT,
     `user_from` INT(20) NOT NULL,
     `user_to` INT(20) NOT NULL, 
+    `last_message` INT(20), 
     PRIMARY KEY(`id`),
     FOREIGN KEY(`user_from`) REFERENCES users(id),
-    FOREIGN KEY(`user_to`) REFERENCES users(id)
+    FOREIGN KEY(`user_to`) REFERENCES users(id),
+    FOREIGN KEY(`last_message`) REFERENCES messages(id),
 )
 ENGINE = InnoDB DEFAULT CHARSET=utf8;
 

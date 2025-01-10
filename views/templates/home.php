@@ -10,7 +10,11 @@
                 en
                 la magie du partage de connaissances et d'histoires à traver les livres.</p>
             <p>
-                <a href="" title="Découvrir" class="btn btn-small">Découvrir</a>
+                <?= empty($_SESSION['user'])
+                    ? '<a href="/index.php?action=login" title="Découvrir" class="btn btn-small">Découvrir</a>'
+                    : '<a href="/index.php?action=account" title="Découvrir" class="btn btn-small">Découvrir</a>'
+                ?>
+                
             </p>
         </div>
         <div class="image-container">

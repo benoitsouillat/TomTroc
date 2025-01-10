@@ -12,4 +12,13 @@ class userSessionValidator
         }
         return false;
     }
+
+    public static function checkUserIdNotSessionUser(int $userID): bool
+    {
+        if (isset($_SESSION['user']['id'])) {
+            return $_SESSION['user']['id'] == $userID ? false : true;
+        }
+        return false;
+
+    }
 }

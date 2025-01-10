@@ -4,17 +4,23 @@ declare(strict_types=1);
 
 class conversationService
 {
-
-    public static function selectPartnerID(stdClass $conversation): int
+    public static function selectPartnerID(Conversation $conversation): int
     {
-        if ($conversation->user_from == $_SESSION['user']['id']) {
-            return (int)$conversation->user_to;
-        }
-        return (int)$conversation->user_from;
+        return $conversation->getUserFrom() == $_SESSION['user']['id'] ? (int)$conversation->getUserTo() : (int)$conversation->getUserFrom();
     }
-    public static function checkConversationExist(int $partnerID)
+
+    public static function checkConversationExist(int $partnerID): bool
     {
-        // If $SESSIONuserID et $partnerID dans une conversation alors conversation existe
-        // Sinon conversation existe pas => go to createConversation dans le conversation repository
+        $conversationRepository = new ConversationRepository;
+        $partnerConversations = $conversationRepository->getAllFromUser($partnerID);
+        $currentUserConversations = $conversationRepository->getAllFromUser((int)$_SESSION['user']['id']);
+        foreach ($partnerConversations as $conversation)
+        {
+            if (in_array($conversation, $currentUserConversations))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

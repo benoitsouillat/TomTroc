@@ -10,14 +10,19 @@ h1, h2 {
     font-size: 36px;
 }
 p, li, a {
-    font-family: inter;
+    font-family: Inter;
 }
 .text-center {
     text-align: center;
     margin: 0 auto;
 }
+.text-end {
+    text-align: end;
+    padding-right: 10px;
+}
 .text-grey {
     color: var(--grey);
+    text-decoration: none;
 }
 .text-darkgrey {
     color: var(--darkgrey);

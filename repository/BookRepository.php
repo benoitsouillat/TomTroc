@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 class BookRepository extends AbstractRepository
 {
-
     public function getAllBooks(): array
     {
         $stmt = $this->db->prepare("SELECT * FROM books");

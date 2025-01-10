@@ -62,6 +62,10 @@ try {
             $accountController = new AccountController();
             $accountController->showAccount();
             break;
+        case 'profile':
+            $accountController = new AccountController();
+            $accountController->showPublicProfile();
+            break;
         case 'logout':
             $accountController = new AccountController();
             $accountController->logout();

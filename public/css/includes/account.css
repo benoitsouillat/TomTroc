@@ -173,3 +173,151 @@
     width: 100%;
 }
 }
+
+/****************** Profil Public *************************/
+
+.profile-page {
+    padding-top: 100px;
+    padding-bottom: 150px;
+    background-color: var(--bg-light);
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        gap: 25px;
+    }
+
+    .data-container, .book-list {
+        background-color: #FFF;
+        border-radius: 30px;
+        overflow: hidden;
+    }
+
+    .data-container {
+        flex: 1 0 33%;
+        height: 70vh;
+        .image-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                width: 140px;
+                height: 140px;
+                margin: 70px auto;
+            }
+        }
+        .info-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* align-items: center; */
+            p {
+                width: 100%;
+                text-align: center;
+                margin-top: 0;
+            }
+
+            .pseudo {
+                font-family: 'Playfair Display';
+                font-weight: 400;
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+            .member-since {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+            .library {
+                font-weight: 400;
+                font-size: 14px;
+                margin-bottom: 45px;
+                span {
+                    display: inline-block;
+                    margin-bottom: 5px;
+                    font-weight: 600;
+                    font-size: 8px;
+                    text-transform: uppercase;
+                }
+            }
+            .btn-container {
+                .btn {
+                    background-color: var(--bg-beige);
+                }
+            }
+
+        }
+    } 
+    .book-list {
+        flex: 1 1 66%;
+        background-color: #fff;
+        table {
+            border-collapse: collapse;
+        }
+        thead {
+            height: 50px;
+            tr {
+                padding-left: 50px;
+            }
+            th {
+                text-transform: uppercase;
+                font-weight: 600;
+                font-size: 9px;
+                letter-spacing: 2px;
+            }
+        } 
+        .book-row {
+            display: table-row;
+            height: 130px;
+            overflow: hidden;
+            td {
+                .book-cell {
+                    display: flex;
+                    align-items: center;
+                    padding: 0 15px;
+                    /* height: 130px; */
+                    margin-left: 50px;
+                }
+            }
+        }
+        .book-row:nth-child(2n) {
+            background-color: var(--lightblue);
+        }
+        .img-container {
+            margin: 15px auto;
+            padding: 0 10px;
+            .book-cell {
+                width: 80px;
+                height: 80px;
+                padding: 0 !important;
+                margin: 30px auto;
+                overflow: hidden;
+
+            }
+            img {
+                width: 80px;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+            }
+        }
+        .title-container, .author-container {
+            width: 20%;
+            text-wrap: nowrap;
+        }
+        .description-container {
+            min-width: 33%;
+            font-style: italic;
+            .book-cell p {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+                max-height: 88px; 
+            }
+        }
+
+
+    }
+}

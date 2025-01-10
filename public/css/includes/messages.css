@@ -69,12 +69,18 @@
     position: relative;
     
     aside.user-partner {
+        z-index: 3;
         position: absolute;
         top: 0;
-        display: flex;
-        align-items: center;
         padding-top: 40px;
-        /* padding-left: 40px; */
+        > a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: fit-content;
+            text-decoration: none;
+            color: #292929;
+        }
         .thumbnail-user {
             img {
                 width: 100%;
@@ -92,6 +98,12 @@
         flex-wrap: wrap;
         padding-right: 130px;
         margin-bottom: 100px;
+        height: 60vh;
+        overflow-y: scroll;
+        position: absolute;
+        bottom: 70px;
+        width: 100%;
+
         aside.message-container {
             width: 100%;
             display: flex;

@@ -3,47 +3,71 @@
 declare(strict_types=1);
 class Message
 {
-    private DateTime $send_date;
-    private string $message;
-    private int $user_from;
-    private int $user_to;
+    private ?int $id = null;
+    private ?DateTime $sendDate = null;
+    private ?string $message = null;
+    private ?int $userFrom = null;
+    private ?int $userTo = null;
     private ?int $conversationID = null;
 
-    public function __construct(string $message, int $conversationID)
+    public function __construct(int $conversationID)
     {
-        $this->send_date = new DateTime();
-        $this->message = htmlspecialchars($message);
-        $this->user_from = (int)$_SESSION['user']['id'];
+        $this->sendDate = new DateTime();
+        $this->userFrom = (int)$_SESSION['user']['id'];
         $this->conversationID = $conversationID;
     }
-
+    public function getId(): int
+    {
+        return $this->id;
+    }
+    public function setId($id): static
+    {
+        $this->id = $id;
+        return $this;
+    }
     public function getDate(): DateTime
     {
-        return $this->send_date;
+        return $this->sendDate;
     }
-    public function getMessageBody(): string
+    public function setDate(string $date): static
     {
-        return $this->message;
+        $this->sendDate = new DateTime($date);
+        return $this;
     }
     public function getUserFromID(): int
     {
-        return $this->user_from;
+        return $this->userFrom;
     }
-
-    public function getUserToID(): int
+    public function setUserFromID(int $userFrom): static
     {
-        return $this->user_to;
+        $this->userFrom = $userFrom;
+        return $this;
     }
-
-    public function getConversationID()
+    public function getUserToID(): ?int
+    {
+        return $this->userTo;
+    }
+    public function setUserToID(int $userTo): static
+    {
+        $this->userTo = $userTo;
+        return $this;
+    }
+    public function getConversationID(): int
     {
         return $this->conversationID;
     }
-
-    public function setConversationID($conversationID)
+    public function setConversationID(int $conversationID): static
     {
         $this->conversationID = $conversationID;
-
+        return $this;
+    }
+    public function getMessage(): string
+    {
+        return $this->message;
+    }
+    public function setMessage(string $message): static
+    {
+        $this->message = htmlspecialchars($message);
         return $this;
     }
 }

@@ -5,45 +5,57 @@ declare(strict_types=1);
 class Conversation
 {
 
-    private int $id;
-    private int $user_from;
-    private int $user_to;
-    private ?int $last_message = null;
+    private ?int $id = null;
+    private int $userFrom;
+    private ?int $userTo = null;
+    private ?int $lastMessage = null;
 
+    public function __construct(?int $partnerID = null)
+    {
+        $this->userFrom = (int)$_SESSION['user']['id'];
+        $this->userTo = $partnerID;
+    }
 
-    public function getId()
+    public function getId(): int 
     {
         return $this->id;
     }
 
-    public function setId($id)
+    public function setId(int $id): static
     {
         $this->id = $id;
-
         return $this;
     }
 
-    public function getUser_from()
+    public function getUserFrom(): int
     {
-        return $this->user_from;
+        return $this->userFrom;
     }
 
-    public function setUser_from($user_from)
+    public function setUserFrom($userFrom): static
     {
-        $this->user_from = $user_from;
-
+        $this->userFrom = $userFrom;
         return $this;
     }
 
-    public function getUser_to()
+    public function getUserTo(): int
     {
-        return $this->user_to;
+        return $this->userTo;
     }
 
-    public function setUser_to($user_to)
+    public function setUserTo($userTo): static
     {
-        $this->user_to = $user_to;
+        $this->userTo = $userTo;
+        return $this;
+    }
 
+    public function getLastMessage(): ?int
+    {
+        return $this->lastMessage;
+    }
+    public function setLastMessage($lastMessage): static
+    {
+        $this->lastMessage = $lastMessage;
         return $this;
     }
 }

@@ -1,5 +1,7 @@
-<div class="breadcrumb container">
-    <p class="text-grey"><a href='/index.php?action=books'>Nos livres</a> > <?= $book->title ?></p>
+<div class="breadcrumb-container container">
+    <div class="breadcrumb">
+        <p class="text-grey"><a href='/index.php?action=books'>Nos livres</a> > <?= $book->title ?></p>
+    </div>
 </div>
 <div class="book-container screen50 container">
     <div class="image-container">
@@ -20,11 +22,15 @@
         <p>PROPRIÉTAIRE</p>
         <div class='owner-container'>
             <?=
-            sprintf("<img class='thumbnail-user' src=%s alt=%s ><p>%s</p>", $book->thumbnail, $book->pseudo, $book->pseudo);
+            sprintf("<a href='/index.php?action=profile&userID=%s'><img class='thumbnail-user' src=%s alt=%s ><p>%s</p></a>", $book->owner, $book->thumbnail, $book->pseudo, $book->pseudo);
             ?>
         </div>
         <div class="btn-container">
-            <a href="#" class="btn btn-full">Envoyer un message</a>
+        <?=
+            userSessionValidator::checkUserIdNotSessionUser($book->owner)  
+                ? sprintf('<a href="/index.php?action=messages&user_toID=%s" class="btn btn-full">Envoyer un message</a>', $book->owner)
+                : '<p class="text-end"><a href="/index.php?action=login" class="text-grey">Se connecter pour envoyer un message</a></p>';
+        ?>
         </div>
     </div>
 </div>
