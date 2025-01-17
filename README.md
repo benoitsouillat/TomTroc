@@ -2,6 +2,9 @@ Installation de la base de donnée :
 
 Sur Docker : 
     - Lancer un docker compose up dans le repertoire racine
+        - Mysql par défaut : localhost:3306 / username: root / password: 
+        - PHPMyAdmin par défaut : localhost:8081
+        - Site Tomtroc par défaut : localhost:8080
     - Installer la base de donnée en suivant la procédure PHPMyAdmin
 
 Sur PHPMyAdmin :

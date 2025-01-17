@@ -27,9 +27,12 @@
         </div>
         <div class="btn-container">
         <?=
-            userSessionValidator::checkUserIdNotSessionUser($book->owner)  
+            !empty($_SESSION['user']) 
+            ?   (userSessionValidator::checkUserIdNotSessionUser($book->owner)  
                 ? sprintf('<a href="/index.php?action=messages&user_toID=%s" class="btn btn-full">Envoyer un message</a>', $book->owner)
-                : '<p class="text-end"><a href="/index.php?action=login" class="text-grey">Se connecter pour envoyer un message</a></p>';
+                : '')
+            :
+                "<p class='text-end'><a href='/index.php?action=login' class='text-grey'>Se connecter pour envoyer un message</a></p>"
         ?>
         </div>
     </div>
