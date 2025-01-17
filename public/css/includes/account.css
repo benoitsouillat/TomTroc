@@ -135,38 +135,74 @@
         table {
             width: 100%;
             color: var(--darkgrey);
-            padding: 30px 65px 0 65px;
+            padding: 30px 0 0 0;
+            border-collapse: collapse;
         }
         thead {
-            text-transform: uppercase;
             border-bottom: solid 1px var(--grey);
             th {
-                font-size: 8px;
+                text-align: start;
+                font-size: 9px;
                 text-transform: uppercase;
-                max-width: 50%;
+                letter-spacing: 2px;
+                padding-bottom: 10px;
+            }
+            .head-photo {
+                width: 15%;
+                span {
+                    margin-left: 60px;
+                }
+            }
+            .head-title {
+                width: 16%;
+            }
+            .head-author {
+                width: 16%;
+            }
+            .head-description {
+                width: 22%;
+            }
+            .head-available {
+                width: 11%;
+            }
+            .head-actions {
+                width: 30%;
             }
         }
         tbody tr {
-            text-align: center;
             height: 130px;
         }
         .book-row {
             .image-book {
-                max-width: 100%;
+                width: 80px;
+                height: 80px;
+                overflow: hidden;
+                margin-left: 60px;
+                img {
+                    height: 100px;
+                    object-fit: cover;
+                    aspect-ratio: 1/1;
+                }
             }
             .title-book, .author-book {
                 text-align: left;
-                padding-left: 5px;
+                padding-right: 10px;
             }
             .description-book {
-                padding: 15px 20px;
-                height: 88px;
+                width: 200px;
+                height: 84px;
+                padding: 15px 0;
+                padding-right: 10px;
+                font-style: italic;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 display: -webkit-box;
                 -webkit-line-clamp: 5;
                 -webkit-box-orient: vertical;
             }
+        }
+        .book-row:nth-child(2n) {
+            background-color: var(--lightblue);
         }
     }
     .edit-picture-container {
@@ -301,8 +337,7 @@
                 object-fit: cover;
             }
         }
-        .title-container, .author-container {
-            width: 20%;
+        .author-container {
             text-wrap: nowrap;
         }
         .description-container {

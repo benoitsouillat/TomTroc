@@ -84,12 +84,12 @@
         <table>
             <thead>
                 <tr>
-                    <th>Photo</th>
-                    <th>Titre</th>
-                    <th>Auteur</th>
-                    <th class="w-50">Description</th>
-                    <th>Disponibilité</th>
-                    <th>Action</th>
+                    <th class="head-photo"><span>Photo<span></th>
+                    <th class="head-title">Titre</th>
+                    <th class="head-author">Auteur</th>
+                    <th class="head-description">Description</th>
+                    <th class="head-available">Disponibilité</th>
+                    <th class="head-actions">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -98,7 +98,7 @@
                     $available = $book->available == 1 ? "<span class='available'>Disponible</span>" : "<span class='unavailable'>Réservé</span>";
                     echo sprintf('
                     <tr class="book-row">
-                        <td><div class="image-book"><img src="%s" alt="%s" width="50"></div></td>
+                        <td><div class="image-book"><img src="%s" alt="%s"></div></td>
                         <td><div class="title-book">%s</div></td>
                         <td><div class="author-book">%s</div></td>
                         <td><div class="description-book">%s</div></td>

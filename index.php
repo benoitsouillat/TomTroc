@@ -23,9 +23,6 @@ try {
             if (isset($_REQUEST['book_id'])) {
                 $bookId = $_REQUEST['book_id'];
             }
-            if (!isset($bookId)) {
-                /* Redirection */
-            }
             $bookController = new BookController();
             $bookController->showBook((int)$bookId);
             break;

@@ -56,15 +56,14 @@ CREATE TABLE IF NOT EXISTS `conversations` (
     `last_message` INT(20), 
     PRIMARY KEY(`id`),
     FOREIGN KEY(`user_from`) REFERENCES users(id),
-    FOREIGN KEY(`user_to`) REFERENCES users(id),
-    FOREIGN KEY(`last_message`) REFERENCES messages(id),
+    FOREIGN KEY(`user_to`) REFERENCES users(id)
 )
 ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `messages` (
     `id` INT(20) NOT NULL AUTO_INCREMENT,
     `message` TEXT NOT NULL,
-    `send_date` DATE NOT NULL,
+    `send_date` DATETIME NOT NULL,
     `user_from` INT(20) NOT NULL,
     `user_to` INT(20) NOT NULL, 
     `conversation` INT(20),
@@ -74,4 +73,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
     FOREIGN KEY(`user_to`) REFERENCES users(id)
 )
 ENGINE = InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `conversations` 
+ADD FOREIGN KEY(`last_message`) REFERENCES messages(id);
 

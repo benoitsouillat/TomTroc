@@ -16,8 +16,7 @@ class conversationService
         $currentUserConversations = $conversationRepository->getAllFromUser((int)$_SESSION['user']['id']);
         foreach ($partnerConversations as $conversation)
         {
-            if (in_array($conversation, $currentUserConversations))
-            {
+            if (in_array($conversation, $currentUserConversations)) {
                 return true;
             }
         }
