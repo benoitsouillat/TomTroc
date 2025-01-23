@@ -16,5 +16,4 @@ Sur PHPMyAdmin :
 
     - Importer le fichier tomtroc.sql dans la base de donnée : (Route par défaut : /index.php?route=/database/import&db=tomtroc)
 
-
 Le site est maintenant accessible, vous pouvez créer votre compte sur /index.php?action=login

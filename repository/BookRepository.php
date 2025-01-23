@@ -44,6 +44,14 @@ class BookRepository extends AbstractRepository
         $stmt->execute();
         return $stmt->fetchAll();
     }
+    public function searchBooks(string $value): ?array
+    {
+        $value = "%" . htmlspecialchars($value) . "%";
+        $stmt = $this->db->prepare("SELECT B.id as book_id, U.id as user_id, B.*, U.* FROM books B INNER JOIN users U ON B.owner = U.id WHERE B.available = 1 AND B.title LIKE :value");
+        $stmt->bindParam(':value', $value);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
     public function createBook(array $book, string $picture): void
     {
         $stmt = $this->db->prepare("INSERT INTO books (title, author, description, available, picture, owner) VALUES (:title, :author, :description, :available, :picture, :owner)");

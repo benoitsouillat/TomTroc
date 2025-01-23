@@ -26,6 +26,10 @@ try {
             $bookController = new BookController();
             $bookController->showBook((int)$bookId);
             break;
+        case 'search_book':
+            $bookController = new BookController();
+            $bookController->searchBook($_GET['search-book']);
+            break;
         case 'edit_book':
             if (isset($_REQUEST['book_id'])) {
                 $bookId = $_REQUEST['book_id'];
