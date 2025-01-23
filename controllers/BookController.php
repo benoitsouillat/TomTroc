@@ -42,13 +42,14 @@ class BookController
         $books = $bookRepository->searchBooks($value);
         $view = new View("Nos livres à l'échange");
         if (empty($books)) {
-            $view->render("book/list", ['errors' => ['Aucun livre ne correspond à votre recherche']]);
+            $view->render("book/list", ['errors' => ['Aucun livre ne correspond à votre recherche']]); 
         } 
-        foreach ($books as &$book) {
-            $book->seller =  sprintf("%s", ucfirst($book->pseudo));
+        else {
+            foreach ($books as &$book) {
+                $book->seller =  sprintf("%s", ucfirst($book->pseudo));
+            }
+            $view->render("book/list", ['books' => $books]);
         }
-        $view->render("book/list", ['books' => $books]);
-
     }
 
     public function editBook(?int $bookId = null): void
